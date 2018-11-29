@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>spark-java-file-upload-example</artifactId>
+  <version>unspecified</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-core</artifactId>
+      <version>2.6.0</version>
+      <scope>compile</scope>
+    </dependency>
+	
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.25</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+    <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.2</version>
+        <configuration>
+          <destfile>/target/coverage-reports/jacoco-unit.exec</destfile>
+          <datafile>/target/coverage-reports/jacoco-unit.exec</datafile>
+        </configuration>
+        <executions>
+          <execution>
+            <id>jacoco-initialize</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jacoco-site</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>com.firstfewlines.SAM2019</mainClass>
+          <arguments>
+          </arguments>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
